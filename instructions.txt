@@ -1,0 +1,11 @@
+marker_single ./HSEMS.pdf --output_dir ./output_hsems --paginate_output --use_llm --force_ocr --gemini_api_key ""
+
+
+I have given a company's HSEMS document in hsems_4_5_11A.md
+
+The company needs to prove that their HSEMS comply's with the kpi's in the OVMSA
+
+According to this kpi:
+Element: Element 3: Recruitment, management and wellbeing of vessel personnel | 3 Recruitment and management of vessel personnel | 3.1 | 3.1.4 - Formal familiarisation procedures are in place for vessel personnel, including contractors.\nKey: 3.1.4\nAim: To ensure that suitably qualified, competent and motivated vessel personnel are recruited, trained and retained to deliver safe and reliable operations on board company vessels.\nGuideline: The documented procedures may include familiarisation with: • Onboard HSSE requirements. • The company SMS. • Vessel specific operations and equipment. • Roles and responsibilities. Records of familiarisation are maintained.
+
+Is there anything in the HSEMS that complies with the kpi? Say yes or no. If yes, say which part of the HSEMS complies. If the markdown has a table, return the table as well if needed. Also give range of pages, which heading and/or subheading it is located at.

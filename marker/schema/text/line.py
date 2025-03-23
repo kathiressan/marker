@@ -94,7 +94,14 @@ class Line(Block):
             section_hierarchy=section_hierarchy
         )
 
-    def merge(self, other: "Line"):
+    def merge(self, other):
+        # Check if either structure is None and handle it properly
+        if self.structure is None:
+            self.structure = []
+        
+        if other.structure is None:
+            other.structure = []
+        
         self.polygon = self.polygon.merge([other.polygon])
         self.structure = self.structure + other.structure
         if self.formats is None:
