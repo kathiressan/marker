@@ -1,4 +1,4 @@
-marker_single ./HSEMS.pdf --output_dir ./output_hsems --paginate_output --use_llm --force_ocr --gemini_api_key "AIzaSyAKKCwsmXhMLwdseWswnFqhimLwuJjso5E"
+marker_single ./HSEMS.pdf --output_dir ./output_hsems --paginate_output --use_llm --force_ocr --gemini_api_key ""
 
 
 I have given a company's HSEMS document in hsems_4_5_11A.md
