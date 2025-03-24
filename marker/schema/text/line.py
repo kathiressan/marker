@@ -3,6 +3,7 @@ import re
 from typing import Literal, List
 
 import regex
+import sys
 
 from marker.schema import BlockTypes
 from marker.schema.blocks import Block, BlockOutput
@@ -95,15 +96,33 @@ class Line(Block):
         )
 
     def merge(self, other):
-        # Check if either structure is None and handle it properly
+        # Type checking
+        if not isinstance(other, type(self)):
+            raise TypeError(f"Cannot merge {type(self).__name__} with {type(other).__name__}")
+        
+        # Debug prints that write directly to stderr
+        sys.stderr.write(f"Debug - Before checks: self.structure={self.structure}, other.structure={other.structure}\n")
+        sys.stderr.flush()
+        
+        # Initialize structures defensively
         if self.structure is None:
             self.structure = []
+        if not isinstance(self.structure, list):
+            raise TypeError(f"self.structure must be list, got {type(self.structure)}")
         
-        if other.structure is None:
-            other.structure = []
+        # Handle other.structure being None
+        other_structure = [] if other.structure is None else other.structure
+        if not isinstance(other_structure, list):
+            raise TypeError(f"other.structure must be None or list, got {type(other.structure)}")
+        
+        sys.stderr.write(f"Debug - After initialization: self.structure={self.structure}, other_structure={other_structure}\n")
+        sys.stderr.flush()
         
         self.polygon = self.polygon.merge([other.polygon])
-        self.structure = self.structure + other.structure
+        
+        # Merge structures
+        self.structure.extend(other_structure)  # Using extend instead of + for in-place modification
+        
         if self.formats is None:
             self.formats = other.formats
         elif other.formats is not None:

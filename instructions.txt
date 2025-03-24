@@ -1,4 +1,4 @@
-marker_single ./HSEMS.pdf --output_dir ./output_hsems --paginate_output --use_llm --force_ocr --gemini_api_key ""
+marker_single ./HSEMS.pdf --output_dir ./output_hsems --paginate_output --use_llm --force_ocr --gemini_api_key "AIzaSyAKKCwsmXhMLwdseWswnFqhimLwuJjso5E"
 
 
 I have given a company's HSEMS document in hsems_4_5_11A.md
@@ -9,3 +9,45 @@ According to this kpi:
 Element: Element 3: Recruitment, management and wellbeing of vessel personnel | 3 Recruitment and management of vessel personnel | 3.1 | 3.1.4 - Formal familiarisation procedures are in place for vessel personnel, including contractors.\nKey: 3.1.4\nAim: To ensure that suitably qualified, competent and motivated vessel personnel are recruited, trained and retained to deliver safe and reliable operations on board company vessels.\nGuideline: The documented procedures may include familiarisation with: • Onboard HSSE requirements. • The company SMS. • Vessel specific operations and equipment. • Roles and responsibilities. Records of familiarisation are maintained.
 
 Is there anything in the HSEMS that complies with the kpi? Say yes or no. If yes, say which part of the HSEMS complies. If the markdown has a table, return the table as well if needed. Also give range of pages, which heading and/or subheading it is located at.
+
+
+
+
+
+
+
+
+
+ntegrated management system
+
+- HSEME —> entry level of HSEMS
+- We want to show a sample document for them to use (this is for the demo)
+- We want to show them how we go through the flow of the upload
+    - Frequency of fire drills (for example)
+    - 
+** We want to show real flows, not just static hard coded screens
+
+- test script: ask about KPI then the ai should be able to check hsems for information on the kpi
+- Output is yet to be determined whether will show in IMS booklet or the chat
+- Frequency is based on each question’s matching. This requires us to interpret frequencies based on the context given in the HSEMS or OVMSA handbook
+    - NOTE: The accuracy of parsing depends on document quality
+
+Test Cases:
+    - If there is an incompatibility between the requirements written in the document of the auditor (assessor), then they are required to re-upload the document (the original document was incomplete)
+    - 11A (report and communication) —> table 2.3 (A) —> this is the reference for the company/user’s set frequency —> verified against 1.4.2 “As and when required”  is minimum of 1, no notification, but once every 12 months (once a year) requires an alert
+    - Ex: 3.1.2 under ovmsa —> answer is in IMS 0.5 4.2.3
+    - 3A.1.2 —> answer is at IMS 05 5.8
+    - 3.1.4 —>, answer is in IMS 06 Appendices (template of the form for this KPI)
+    - Should be able to tell if only one signature is present (or no signatures) and flag/alert the user. —> the colour x yellow (traffic light status)
+    - IMS 12 —> planned maintainence system (all 12 pages) —> answer is 4.1.1
+        - 12.4 —> we need to be able to notify them that the colour needs to be updated — (if green, you can use tag line, if yellow/orange you cannot use the tag line —> this is referring to vessels with loose lifting gear) as an example
+    - Email && SMS notification for demo — i.e. uploading a document that is not valid (no signature or incomplete document)
+    - Questionnaires required for HSEMS (i.e. what is your company’s mission)
+    - Signature and date check in form
+        - Notification about pass or not
+
+TO-DO:
+- Update the POSH to SR Marine in the HSEMS sample (check all pages, there are multiple)
+- Test Gemini and check for costing
+- 
+-
